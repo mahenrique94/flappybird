@@ -9,26 +9,31 @@ public class Carousel : MonoBehaviour {
 	private Vector3 initialPosition;
 	private float realSizeImage;
 
-	private void Awake() {
+	private void Awake() 
+    {
 		this.initialPosition = this.transform.position;
 		this.CalculateRealSizeImage ();
 	}
 
-	private void Update () {
+	private void Update () 
+    {
 		this.Move ();
 	}
 
-	private float CalculateDeslocation() {
+	private float CalculateDeslocation() 
+    {
 		return Mathf.Repeat(this.velocity * Time.time, this.realSizeImage);
 	}
 
-	private void CalculateRealSizeImage() {
+	private void CalculateRealSizeImage() 
+    {
 		float sizeImage = this.GetComponent<SpriteRenderer> ().size.x;
 		float scale = this.transform.localScale.x;
 		this.realSizeImage = sizeImage * scale;
 	}
 
-	private void Move() {
+	private void Move() 
+    {
 		this.transform.position = this.initialPosition + (Vector3.left * this.CalculateDeslocation());
 	}
 

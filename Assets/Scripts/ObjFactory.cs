@@ -10,11 +10,13 @@ public class ObjFactory : MonoBehaviour {
 	private GameObject obj;
 	private float timer;
 
-	private void Awake() {
+	private void Awake() 
+    {
 		this.ClearTime ();
 	}
 	
-	private void Update () {
+	private void Update () 
+    {
 		this.timer -= Time.deltaTime;
 		if (this.TimeTarget()) {
 			this.BuildNewObj ();
@@ -22,15 +24,18 @@ public class ObjFactory : MonoBehaviour {
 		}
 	}
 
-	private void BuildNewObj() {
+	private void BuildNewObj() 
+    {
 		GameObject.Instantiate (this.obj, this.transform.position, Quaternion.identity);
 	}
 
-	private void ClearTime() {
+	private void ClearTime() 
+    {
 		this.timer = this.interval;
 	}
 
-	private bool TimeTarget() {
+	private bool TimeTarget() 
+    {
 		return this.timer <= 0;
 	}
 
