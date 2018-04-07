@@ -5,10 +5,23 @@ using UnityEngine;
 public class Obj : MonoBehaviour {
 
 	[SerializeField]
-	private float velocity = 0.5f;
+	private float velocity = 5f;
+	private float variablePositionY = 2f;
+
+	private void Awake() {
+		this.RandomPosition ();
+	}
 
 	private void Update () {
-		this.transform.Translate (Vector3.left * this.velocity);
+		this.Move ();
+	}
+
+	private void Move() {
+		this.transform.Translate (Vector3.left * this.velocity * Time.deltaTime);
+	}
+
+	private void RandomPosition() {
+		this.transform.Translate(Vector3.up * Random.Range(-this.variablePositionY, this.variablePositionY));
 	}
 
 }

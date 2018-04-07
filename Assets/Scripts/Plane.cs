@@ -13,13 +13,17 @@ public class Plane : MonoBehaviour {
 	}
 	
 	private void Update () {
-		if (Input.GetButtonDown ("Fire1")) {
+		if (this.MouseWasClicked()) {
 			this.Impulse ();
 		}
 	}
 
 	private void Impulse() {
 		this.physic.AddForce (Vector2.up * this.strength, ForceMode2D.Impulse);
+	}
+
+	private bool MouseWasClicked() {
+		return Input.GetButtonDown ("Fire1");
 	}
 
 }

@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Carousel.cs" />
      <Compile Include="Assets\Scripts\Obj.cs" />
      <Compile Include="Assets\Scripts\ObjFactory.cs" />
      <Compile Include="Assets\Scripts\Plane.cs" />

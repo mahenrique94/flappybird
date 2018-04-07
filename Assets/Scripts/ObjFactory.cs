@@ -11,23 +11,27 @@ public class ObjFactory : MonoBehaviour {
 	private float timer;
 
 	private void Awake() {
-		this.clearTime ();
+		this.ClearTime ();
 	}
 	
 	private void Update () {
 		this.timer -= Time.deltaTime;
-		if (this.timeTarget()) {
-			GameObject.Instantiate (this.obj, this.transform.position, Quaternion.identity);
-			this.clearTime ();
+		if (this.TimeTarget()) {
+			this.BuildNewObj ();
+			this.ClearTime ();
 		}
 	}
 
-	private bool timeTarget() {
-		return this.timer <= 0;
+	private void BuildNewObj() {
+		GameObject.Instantiate (this.obj, this.transform.position, Quaternion.identity);
 	}
 
-	private void clearTime() {
+	private void ClearTime() {
 		this.timer = this.interval;
+	}
+
+	private bool TimeTarget() {
+		return this.timer <= 0;
 	}
 
 }

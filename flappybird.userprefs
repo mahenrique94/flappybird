@@ -1,23 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ObjFactory.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Obj.cs">
     <Files>
-      <File FileName="Assets/Scripts/Plane.cs" Line="8" Column="18" />
-      <File FileName="Assets/Scripts/Obj.cs" Line="7" Column="18" />
-      <File FileName="Assets/Scripts/ObjFactory.cs" Line="15" Column="3" />
+      <File FileName="Assets/Scripts/Plane.cs" Line="25" Column="14" />
+      <File FileName="Assets/Scripts/Obj.cs" Line="24" Column="40" />
+      <File FileName="Assets/Scripts/ObjFactory.cs" Line="31" Column="3" />
+      <File FileName="Assets/Scripts/Carousel.cs" Line="7" Column="18" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node />
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="flappybird" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
