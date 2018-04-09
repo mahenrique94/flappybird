@@ -324,6 +324,7 @@
     <Compile Include="Assets\Scripts\Obj.cs" />
     <Compile Include="Assets\Scripts\ObjFactory.cs" />
     <Compile Include="Assets\Scripts\Plane.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

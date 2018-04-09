@@ -8,7 +8,7 @@ public class Plane : MonoBehaviour {
 	private Rigidbody2D physic;
     private Vector3 startPosition;
 	[SerializeField]
-	private int strength = 3;
+	private int strength;
 
     public void restart() {
         this.transform.position = this.startPosition;

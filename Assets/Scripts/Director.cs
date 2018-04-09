@@ -6,8 +6,9 @@ public class Director : MonoBehaviour {
 
     [SerializeField]
     private GameObject gameOver;
-    private Plane plane;
     private ObjFactory objFactory;
+    private Plane plane;
+    private Score score;
 
 	public void endGame() {
         this.changeTimeScale(0);
@@ -17,6 +18,7 @@ public class Director : MonoBehaviour {
     public void restartGame() {
         this.plane.restart();
         this.objFactory.destroyAll();
+        this.score.restart();
         this.restart();
     }
 
@@ -27,6 +29,7 @@ public class Director : MonoBehaviour {
     private void Start() {
         this.plane = GameObject.FindObjectOfType<Plane>();
         this.objFactory = GameObject.FindObjectOfType<ObjFactory>();
+        this.score = GameObject.FindObjectOfType<Score>();
     }
 
     private void restart() {

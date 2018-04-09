@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjFactory : MonoBehaviour {
 
 	[SerializeField]
-	private float interval = 3f;
+	private float interval;
 	[SerializeField]
 	private GameObject obj;
 	private float timer;
@@ -40,7 +40,7 @@ public class ObjFactory : MonoBehaviour {
     }
 
 	private bool timeWasTarget() {
-		return this.timer <= 0;
+		return this.timer < 0;
 	}
 
     private void Update() {
