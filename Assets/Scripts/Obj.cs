@@ -8,33 +8,27 @@ public class Obj : MonoBehaviour {
 	[SerializeField]
 	private float velocity = 5f;
 
-	private void Awake() 
-    {
+	private void Awake() {
 		this.RandomPosition ();
 	}
 
-    private void Destroy()
-    {
+    private void Destroy() {
         GameObject.Destroy(this.gameObject);
     }
 
-	private void Move() 
-    {
+	private void Move() {
 		this.transform.Translate (Vector3.left * this.velocity * Time.deltaTime);
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+    private void OnTriggerEnter2D(Collider2D collision) {
         this.Destroy();
     }
 
-	private void RandomPosition() 
-    {
+	private void RandomPosition() {
 		this.transform.Translate(Vector3.up * Random.Range(-this.variablePositionY, this.variablePositionY));
 	}
 
-    private void Update()
-    {
+    private void Update() {
         this.Move();
     }
 

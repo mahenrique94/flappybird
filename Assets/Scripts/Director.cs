@@ -7,8 +7,7 @@ public class Director : MonoBehaviour {
     [SerializeField]
     private GameObject gameOverImage;
 
-    public void EndGame() 
-    {
+    public void EndGame() {
         Time.timeScale = 0;
         this.gameOverImage.SetActive(true);
     }

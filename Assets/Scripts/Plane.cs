@@ -9,47 +9,42 @@ public class Plane : MonoBehaviour {
 	[SerializeField]
 	private int strength = 3;
 
-	private void Awake () 
-    {
+	private void Awake () {
 		this.physic = this.GetComponent<Rigidbody2D> ();
 	}
 
-    private void changePhysic(bool state)
-    {
+    private void changePhysic(bool state) {
         this.physic.simulated = state;
     }
 
-	private void Impulse() 
-    {
+	private void Impulse() {
         this.physic.velocity = Vector2.zero;
         this.physic.AddForce (Vector2.up * this.strength, ForceMode2D.Impulse);
 	}
 
-	private bool MouseWasClicked() 
-    {
+	private bool MouseWasClicked() {
 		return Input.GetButtonDown ("Fire1");
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    private void OnCollisionEnter2D(Collision2D collision) {
         this.StopPhysic();
         this.director.EndGame();
     }
 
-    private void Start()
-    {
+    public void Restart() {
+        
+    }
+
+    private void Start() {
         this.director = GameObject.FindObjectOfType<Director>();
     }
 
-    private void StopPhysic() 
-    {
+    private void StopPhysic() {
         this.changePhysic(false);
     }
 
-    private void Update()
-    {
-        if (this.MouseWasClicked())
-        {
+    private void Update() {
+        if (this.MouseWasClicked()) {
             this.Impulse();
         }
     }
