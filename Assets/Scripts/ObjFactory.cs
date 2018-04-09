@@ -10,31 +10,44 @@ public class ObjFactory : MonoBehaviour {
 	private GameObject obj;
 	private float timer;
 
+    public void destroyAll() {
+        Obj[] objs = GameObject.FindObjectsOfType<Obj>();
+        if (this.hasObjCreatedInScene(objs)) {
+            foreach (Obj o in objs) {
+                o.destroy();
+            }
+        }
+    }
+
 	private void Awake() {
-		this.ClearTime ();
+		this.clearTime ();
 	}
 
-	private void BuildNewObj() {
+	private void buildNewObj() {
 		GameObject.Instantiate (this.obj, this.transform.position, Quaternion.identity);
 	}
 
-    private void CalculateIntervalFromLastExecution() {
+    private void calculateIntervalFromLastExecution() {
         this.timer -= Time.deltaTime;
     }
 
-	private void ClearTime() {
+	private void clearTime() {
 		this.timer = this.interval;
 	}
 
-	private bool TimeWasTarget() {
+    private bool hasObjCreatedInScene(Obj[] objs) {
+        return objs.Length > 0;
+    }
+
+	private bool timeWasTarget() {
 		return this.timer <= 0;
 	}
 
     private void Update() {
-        this.CalculateIntervalFromLastExecution();
-        if (this.TimeWasTarget()) {
-            this.BuildNewObj();
-            this.ClearTime();
+        this.calculateIntervalFromLastExecution();
+        if (this.timeWasTarget()) {
+            this.buildNewObj();
+            this.clearTime();
         }
     }
 
