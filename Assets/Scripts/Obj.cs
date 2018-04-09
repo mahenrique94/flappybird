@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class Obj : MonoBehaviour {
 
+    private float variablePositionY = 2f;
 	[SerializeField]
 	private float velocity = 5f;
-	private float variablePositionY = 2f;
 
 	private void Awake() 
     {
 		this.RandomPosition ();
 	}
 
-	private void Update () 
+    private void Destroy()
     {
-		this.Move ();
-	}
-
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-        this.Destroy();
-	}
+        GameObject.Destroy(this.gameObject);
+    }
 
 	private void Move() 
     {
 		this.transform.Translate (Vector3.left * this.velocity * Time.deltaTime);
 	}
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        this.Destroy();
+    }
+
 	private void RandomPosition() 
     {
 		this.transform.Translate(Vector3.up * Random.Range(-this.variablePositionY, this.variablePositionY));
 	}
 
-	private void Destroy() 
+    private void Update()
     {
-        GameObject.Destroy(this.gameObject);
-	}
+        this.Move();
+    }
 
 }

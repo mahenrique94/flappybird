@@ -4,30 +4,20 @@ using UnityEngine;
 
 public class Plane : MonoBehaviour {
 
+    private Director director;
 	private Rigidbody2D physic;
 	[SerializeField]
 	private int strength = 3;
-    private Director director;
 
 	private void Awake () 
     {
 		this.physic = this.GetComponent<Rigidbody2D> ();
-        this.director = GameObject.FindObjectOfType<Director>();
-	}
-	
-	private void Update () 
-    {
-		if (this.MouseWasClicked()) 
-        {
-			this.Impulse ();
-		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-        this.physic.simulated = false;
-        this.director.EndGame();
-	}
+    private void changePhysic(bool state)
+    {
+        this.physic.simulated = state;
+    }
 
 	private void Impulse() 
     {
@@ -39,5 +29,29 @@ public class Plane : MonoBehaviour {
     {
 		return Input.GetButtonDown ("Fire1");
 	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        this.StopPhysic();
+        this.director.EndGame();
+    }
+
+    private void Start()
+    {
+        this.director = GameObject.FindObjectOfType<Director>();
+    }
+
+    private void StopPhysic() 
+    {
+        this.changePhysic(false);
+    }
+
+    private void Update()
+    {
+        if (this.MouseWasClicked())
+        {
+            this.Impulse();
+        }
+    }
 
 }

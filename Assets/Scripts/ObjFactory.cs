@@ -14,29 +14,35 @@ public class ObjFactory : MonoBehaviour {
     {
 		this.ClearTime ();
 	}
-	
-	private void Update () 
-    {
-		this.timer -= Time.deltaTime;
-		if (this.TimeTarget()) {
-			this.BuildNewObj ();
-			this.ClearTime ();
-		}
-	}
 
 	private void BuildNewObj() 
     {
 		GameObject.Instantiate (this.obj, this.transform.position, Quaternion.identity);
 	}
 
+    private void CalculateIntervalFromLastExecution() 
+    {
+        this.timer -= Time.deltaTime;
+    }
+
 	private void ClearTime() 
     {
 		this.timer = this.interval;
 	}
 
-	private bool TimeTarget() 
+	private bool TimeWasTarget() 
     {
 		return this.timer <= 0;
 	}
+
+    private void Update()
+    {
+        this.CalculateIntervalFromLastExecution();
+        if (this.TimeWasTarget())
+        {
+            this.BuildNewObj();
+            this.ClearTime();
+        }
+    }
 
 }

@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class Carousel : MonoBehaviour {
 
+    private Vector3 initialPosition;
+    private float realSizeImage;
 	[SerializeField]
 	private float velocity = 5f;
-	private Vector3 initialPosition;
-	private float realSizeImage;
 
 	private void Awake() 
     {
 		this.initialPosition = this.transform.position;
 		this.CalculateRealSizeImage ();
-	}
-
-	private void Update () 
-    {
-		this.Move ();
 	}
 
 	private float CalculateDeslocation() 
@@ -36,5 +31,10 @@ public class Carousel : MonoBehaviour {
     {
 		this.transform.position = this.initialPosition + (Vector3.left * this.CalculateDeslocation());
 	}
+
+    private void Update()
+    {
+        this.Move();
+    }
 
 }
